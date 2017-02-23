@@ -3,7 +3,7 @@
 .section-mapa-component {
     @extend %cover;
     @extend %flex-center-center;
-    background-image: url(../../../assets/img/mapa.jpg);
+    //background-image: url(./../../../assets/img/mapa.jpg);
     height: 65vh;
 
     .area {

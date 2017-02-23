@@ -4,7 +4,7 @@
     @extend %cover;
     @extend %flex-center-center;
     @include flex-dir(column);
-    background-image: url(../../../assets/img/matriz.jpg);
+    //background-image: url(../../../assets/img/matriz.jpg);
     height: 40vh;
 
     h4 {

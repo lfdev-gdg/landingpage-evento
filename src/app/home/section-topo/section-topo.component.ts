@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-section-topo',
@@ -7,8 +8,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SectionTopoComponent implements OnInit {
 
-    constructor() { }
+    constructor(private sanitizer: DomSanitizer) { }
 
     ngOnInit() { }
+
+    trust(url: string): any {
+        return this.sanitizer.bypassSecurityTrustStyle('url(' + url + ')');
+    }
 
 }
