@@ -15,7 +15,7 @@ export class SectionPalestrantesComponent implements OnInit {
         this.palestrantes = [
             {
                 nome: 'Danielle',
-                sobrenome: 'Sobrenome',
+                sobrenome: 'Teixeira',
                 imagem: '../../../../assets/img/p_danielle.jpg',
                 redes: {
                     github: 'http://github.com/wgbn',

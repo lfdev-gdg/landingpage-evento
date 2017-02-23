@@ -1,5 +1,4 @@
 import {Component, OnInit, NgZone} from '@angular/core';
-import {setInterval} from "timers";
 import {Observable, Subscription} from "rxjs";
 
 @Component({
@@ -27,7 +26,7 @@ export class ContadorComponent implements OnInit {
 
     ngOnInit() { }
 
-    private eventTimer(): void {//console.log('eventTimer('+moment().valueOf()+')', this.segundos);
+    private eventTimer(): void {
         let hoje = moment();
 
         this.dias = this.evento.diff(hoje, 'days');
