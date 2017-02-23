@@ -1,0 +1,49 @@
+@import '../../../scss/imports';
+
+.section-matriz-component {
+    @extend %cover;
+    @extend %flex-center-center;
+    @include flex-dir(column);
+    background-image: url(../../../assets/img/matriz.jpg);
+    height: 40vh;
+
+    h4 {
+        color: #fff;
+        width: 95%;
+        max-width: 650px;
+        font-weight: 300;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .section-matriz-component {
+        h4 {
+            font-size: 2em;
+        }
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .section-matriz-component {
+        height: 30vh;
+        h4 {
+            font: {
+                size: 1.7em;
+                weight: 400;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .section-matriz-component {
+        height: auto;
+        h4 {
+            font: {
+                size: 1.5em;
+            }
+        }
+    }
+}

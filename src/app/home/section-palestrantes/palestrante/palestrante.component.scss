@@ -1,0 +1,81 @@
+@import '../../../../scss/imports';
+
+.palestrante-component {
+    @include box-shadow(0, 0, 5px, rgba(0,0,0,.5));
+    @extend %flex-center-center;
+    @include flex-dir(column);
+    background-color: #fff;
+    margin: 1em;
+    max-width: 200px;
+    min-height: 306px;
+    position: relative;
+
+    .front {
+        padding: .5em;
+
+        img {
+            width: 100%;
+        }
+
+        .nome {
+            @extend %flex-center-center;
+            @include flex-dir(column);
+            text-align: center;
+            color: #000;
+            line-height: normal;
+            height: 100px;
+            font: {
+                size: 2em;
+                weight: 200;
+            }
+        }
+    }
+
+    .front-hide {
+        height: 0px;
+        opacity: 0;
+    }
+
+    .bio {
+        @extend %flex-center-center;
+        @include flex-dir(column);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: .5em;
+        background-color: $verde;
+        color: #fff;
+        height: 1px;
+        opacity: 0;
+
+        -webkit-transition: height .3s, opacity .1s;
+        -moz-transition: height .3s, opacity .1s;
+        -ms-transition: height .3s, opacity .1s;
+        -o-transition: height .3s, opacity .1s;
+        transition: height .3s, opacity .1s;
+
+        p {
+            @include flex-grow(1);
+            margin: 0;
+            text-align: center;
+        }
+
+        .redes {
+            text-align: center;
+
+            a {
+                color: #fff;
+                margin: 0 .3em;
+                i {
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    .bio-active {
+        height: 306px;
+        opacity: 1;
+    }
+}

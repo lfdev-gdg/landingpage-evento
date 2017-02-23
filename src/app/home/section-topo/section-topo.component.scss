@@ -1,0 +1,60 @@
+@import '../../../scss/imports';
+
+.section-topo-component {
+    position: relative;
+    height: 100vh;
+
+    .bg-topo {
+        @extend %cover;
+        @extend %flex-center-center;
+        @include flex-dir(column);
+        background-position: center top;
+        background-image: url(../../../assets/img/back-topo.jpg);
+        height: 85vh;
+        position: relative;
+
+        .quando {
+            background-color: #fff;
+            padding: .5em;
+            font: {
+                size: 1.3em;
+                weight: 300;
+            }
+            line-height: normal;
+            letter-spacing: .15em;
+        }
+
+        h1 {
+            color: #fff;
+            margin: 2em 0;
+            padding: 0;
+            width: 95%;
+            text-align: center;
+            font: {
+                weight: 400;
+            }
+        }
+    }
+
+}
+
+/* media queries */
+@media screen and (max-width: 1080px) {
+    .section-topo-component {
+        .bg-topo {
+            h1 {
+                margin: 1em 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .section-topo-component {
+        .bg-topo {
+            h1 {
+                font-size: 3em;
+            }
+        }
+    }
+}

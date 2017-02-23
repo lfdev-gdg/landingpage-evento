@@ -1,0 +1,12 @@
+@import '../../../scss/imports';
+
+.section-palestrantes-component {
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #c0c0c0;
+
+    .palestrantes {
+        @extend %flex-center-center;
+        @include flex-wrap(wrap);
+    }
+}

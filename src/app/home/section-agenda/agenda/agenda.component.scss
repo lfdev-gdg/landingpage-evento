@@ -1,0 +1,123 @@
+@import '../../../../scss/imports';
+
+.agenda-component {
+    margin: 0;
+
+    .timeline {
+        height: 15vh;
+        position: relative;
+
+        .linha {
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 15vh;
+            border-right: 1px solid #c0c0c0;
+
+            .bola {
+                position: absolute;
+                top: 5.5vh;
+                right: -1.5vh;
+                width: 3vh;
+                height: 3vh;
+                background-color: #c0c0c0;
+                @include border-radius(50%);
+            }
+        }
+
+    }
+
+    .palestras {
+        @extend %flex-center-left;
+        height: 15vh;
+
+        .area {
+            width: 100%;
+            position: relative;
+
+            .canto {
+                position: absolute;
+                width: 2vh;
+                height: 2vh;
+                background-color: #fff;
+                top: 43%;
+                left: -1vh;
+                transform: rotate(45deg);
+                z-index: 1;
+            }
+
+            .palestra {
+                @include box-shadow(-4px, 0, 20px, rgba(0,0,0,.2));
+                @extend %flex-center-left;
+                background-color: #fff;
+                padding: .5em;
+
+                .foto {
+                    @include border-radius(50%);
+                    max-width: 70px;
+                    z-index: 5;
+                }
+
+                .dados {
+                    @include flex-grow(1);
+                    padding-left: 1em;
+
+                    strong {
+                        color: $verde;
+                        font-size: 1.1em;
+                    }
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .agenda-component {
+        .timeline {
+            display: none;
+        }
+        .palestras {
+            height: auto;
+            margin-bottom: 2em;
+            .area {
+                .canto {
+                    display: none;
+                }
+                .palestra {
+                    .foto {
+                        max-width: 120px;
+                    }
+                    .dados {
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .agenda-component {
+        .palestras {
+            .area {
+                .palestra {
+                    .foto {
+                        max-width: 100px;
+                    }
+                    .dados {
+                        font-size: 1.2em;
+                        p {
+                            line-height: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

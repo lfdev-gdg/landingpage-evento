@@ -1,0 +1,29 @@
+@import '../../../scss/imports';
+
+.section-apoio-component {
+    padding: 1.5em 0;
+
+    .area {
+        @extend %flex-center-center;
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
+        width: 95%;
+        max-width: 720px;
+        margin: 0 auto 3em;
+
+        img {
+            max-width: 120px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .section-apoio-component {
+        .area {
+            @include flex-dir(column);
+            img {
+                margin-bottom: 4em;
+            }
+        }
+    }
+}

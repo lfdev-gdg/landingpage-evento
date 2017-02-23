@@ -1,0 +1,23 @@
+<div class="agenda-component row">
+
+    <div class="col s12 m2 l2 timeline">
+        <div class="linha">
+            <div class="bola"></div>
+        </div>
+    </div>
+
+    <div class="col s12 m10 l10 palestras">
+        <div class="area">
+            <div class="canto"></div>
+
+            <div class="palestra">
+                <img [src]="trust(agenda.imagem)" alt="{{agenda.nome}}" class="foto">
+                <div class="dados">
+                    <strong>{{agenda.hora}}</strong>
+                    <p>{{agenda.titulo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

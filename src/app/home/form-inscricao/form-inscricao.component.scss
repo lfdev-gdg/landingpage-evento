@@ -1,0 +1,71 @@
+@import '../../../scss/imports';
+
+.form-inscricao-component {
+    @extend %flex-center-center;
+    @include align-items();
+    width: 95vw;
+    max-width: 750px;
+    background-color: rgba(0,0,0,.5);
+    padding: .6em;
+
+    input, button {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid cyan;
+        width: 33.33%;
+        padding: 0 .5em;
+        margin: 0;
+        outline: none;
+        font: {
+            size: 1.2em;
+            weight: 300;
+        }
+        box-sizing: border-box;
+    }
+
+    button {
+        color: cyan;
+
+        &:hover {
+            background-color: cyan;
+            color: #333;
+        }
+    }
+
+    .email {
+        margin: 0 .5em;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .form-inscricao-component {
+        button {
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form-inscricao-component {
+        @include flex-dir(column);
+
+        input, button {
+            width: 100%;
+        }
+
+        button {
+            padding: .5em;
+            color: #333;
+            background-color: cyan;
+            span {
+                display: inline;
+            }
+        }
+
+        .email {
+            margin: .5em 0;
+        }
+    }
+}
