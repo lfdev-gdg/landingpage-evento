@@ -37,6 +37,50 @@
     }
 }
 
+.modal {
+    .modal-content {
+        @extend %flex-center-center;
+        @include flex-dir(column);
+
+        h4 {
+            color: $verde;
+        }
+
+        .area {
+            @extend %flex-center-center;
+            @include flex-dir(column);
+            @include flex-grow(1);
+            width: 80%;
+
+            .btn-flat {
+                margin-bottom: .5em;
+                width: 50%;
+            }
+        }
+    }
+}
+
+.survey {
+    .area {
+        .convite-pesquisa {
+            font: {
+                family: "Raleway", sans-serif;
+                size: 1.5em;
+                weight: 200;
+            }
+        }
+        .resposta {
+            width: 100%;
+        }
+        .row {
+            width: 100%;
+        }
+        .ifield {
+            width: 50%;
+        }
+    }
+}
+
 @media screen and (max-width: 605px) {
     .form-inscricao-component {
         button {

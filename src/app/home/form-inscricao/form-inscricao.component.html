@@ -1,9 +1,295 @@
 <div class="form-inscricao-component">
 
-    <input type="text" placeholder="nome">
+    <input type="text" placeholder="nome" [(ngModel)]="subscription.name">
 
-    <input type="email" placeholder="e-mail" class="email">
+    <input type="email" placeholder="e-mail" class="email" [(ngModel)]="subscription.email">
 
-    <button>confirmar <span>presença</span></button>
+    <button (click)="sendSubscription()">confirmar <span>presença</span></button>
+
+</div>
+
+<!-- Modal Alerta -->
+<div id="alerta" class="modal alerta" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="alertActions">
+    <div class="modal-content">
+        <h4>Ooops</h4>
+        <p>{{alertMsg}}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+</div>
+
+<!-- Modal Survey -->
+<div id="survey" class="modal modal-fixed-footer survey" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="surveyActions">
+
+    <div class="modal-content" [ngSwitch]="step">
+
+        <h4>Concluir</h4>
+
+        <div class="area" *ngSwitchCase="1">
+            <p class="center-align convite-pesquisa">Que tal nos ajudar a <strong>conhecer melhor você</strong> para prepararmos uma experiência incrível? Esta etapa é opcional.</p>
+            <p class="center-align convite-pesquisa">É fácil e rápido, basta responder nossa pesquisa, leva menos de 5 minutos!</p>
+
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat green white-text center-align" (click)="step = 2">sim, vou responder a pesquisa</a>
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat grey grey-text text-darken-3 center-align" (click)="step = 6">agora não, vou pular esta parte</a>
+        </div>
+
+        <div class="area" *ngSwitchCase="2">
+            <p class="convite-pesquisa">Sobre sua área de atuação, você é:</p>
+
+            <div class="row">
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="ocupacao" type="radio" id="ocupacao-1" (click)="resposta('ocupacao', 'Frontend Developer', 3)" />
+                        <label for="ocupacao-1">Frontend Developer</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="ocupacao" type="radio" id="ocupacao-2" (click)="resposta('ocupacao', 'Backend Developer', 3)" />
+                        <label for="ocupacao-2">Backend Developer</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="ocupacao" type="radio" id="ocupacao-3" (click)="resposta('ocupacao', 'Fullstack Developer', 3)" />
+                        <label for="ocupacao-3">Fullstack Developer</label>
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="ocupacao" type="radio" id="ocupacao-4" (click)="resposta('ocupacao', 'Designer / Webdesigner', 3)" />
+                        <label for="ocupacao-4">Designer / Webdesigner</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="ocupacao" type="radio" id="ocupacao-5" (click)="resposta('ocupacao', 'Atuo em outras áreas', 3)" />
+                        <label for="ocupacao-5">Atuo em outras áreas</label>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="area" *ngSwitchCase="3">
+            <p>Sobre sua formação, você:</p>
+
+            <div class="row">
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="formacao" type="radio" id="formacao-1" (click)="resposta('formacao', 'Formado há algum tempo', 4)" />
+                        <label for="formacao-1">Formado há algum tempo</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="formacao" type="radio" id="formacao-2" (click)="resposta('formacao', 'Recém formado', 4)" />
+                        <label for="formacao-2">Recém formado</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="formacao" type="radio" id="formacao-3" (click)="resposta('formacao', 'Estudante há algum tempo', 4)" />
+                        <label for="formacao-3">Estudante há algum tempo</label>
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="formacao" type="radio" id="formacao-4" (click)="resposta('formacao', 'Estudante calouro', 4)" />
+                        <label for="formacao-4">Estudante calouro</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="formacao" type="radio" id="formacao-5" (click)="resposta('formacao', 'Nenhum das respostas anteriores', 4)" />
+                        <label for="formacao-5">Nenhum das respostas anteriores</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="area" *ngSwitchCase="4">
+            <p>Quais destas linguagens/tecnologias você utiliza?</p>
+
+            <div class="row">
+                <div class="col s3">
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-1" (click)="respostaMultipla('HTML')" />
+                        <label for="tecnologia-1">HTML</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-2" (click)="respostaMultipla('CSS')" />
+                        <label for="tecnologia-2">CSS</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-3" (click)="respostaMultipla('JavaScript')" />
+                        <label for="tecnologia-3">JavaScript</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-4" (click)="respostaMultipla('PHP')" />
+                        <label for="tecnologia-4">PHP</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-5" (click)="respostaMultipla('C#, ASP.NET')" />
+                        <label for="tecnologia-5">C#, ASP.NET</label>
+                    </p>
+                </div>
+                <div class="col s3">
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-6" (click)="respostaMultipla('Ruby')" />
+                        <label for="tecnologia-6">Ruby</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-7" (click)="respostaMultipla('Python')" />
+                        <label for="tecnologia-7">Python</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-8" (click)="respostaMultipla('Dart')" />
+                        <label for="tecnologia-8">Dart</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-9" (click)="respostaMultipla('Java')" />
+                        <label for="tecnologia-9">Java</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-10" (click)="respostaMultipla('Go')" />
+                        <label for="tecnologia-10">Go</label>
+                    </p>
+                </div>
+                <div class="col s3">
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-11" (click)="respostaMultipla('Node.js')" />
+                        <label for="tecnologia-11">Node.js</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-12" (click)="respostaMultipla('Angular')" />
+                        <label for="tecnologia-12">Angular</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-13" (click)="respostaMultipla('React')" />
+                        <label for="tecnologia-13">React</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-14" (click)="respostaMultipla('Meteor')" />
+                        <label for="tecnologia-14">Meteor</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-15" (click)="respostaMultipla('Gulp/Grunt')" />
+                        <label for="tecnologia-15">Gulp/Grunt</label>
+                    </p>
+                </div>
+                <div class="col s3">
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-16" (click)="respostaMultipla('SASS/LESS')" />
+                        <label for="tecnologia-16">SASS/LESS</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-17" (click)="respostaMultipla('jQuery')" />
+                        <label for="tecnologia-17">jQuery</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-18" (click)="respostaMultipla('Laravel')" />
+                        <label for="tecnologia-18">Laravel</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-19" (click)="respostaMultipla('MySql')" />
+                        <label for="tecnologia-19">MySql</label>
+                    </p>
+                    <p class="resposta">
+                        <input type="checkbox" class="filled-in" id="tecnologia-20" (click)="respostaMultipla('MongoDB')" />
+                        <label for="tecnologia-20">MongoDB</label>
+                    </p>
+                </div>
+            </div>
+
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat green white-text center-align" (click)="resposta('tecnologia', multipla, 5)">avançar</a>
+
+        </div>
+
+        <div class="area" *ngSwitchCase="5">
+            <p>Como soube do evento?</p>
+
+            <div class="row">
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-1" (click)="resposta('divulgacao', 'Facebook', 6)" />
+                        <label for="divulgacao-1">Facebook</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-2" (click)="resposta('divulgacao', 'Twitter', 6)" />
+                        <label for="divulgacao-2">Twitter</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-3" (click)="resposta('divulgacao', 'E-mail', 6)" />
+                        <label for="divulgacao-3">E-mail</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-4" (click)="resposta('divulgacao', 'Vi na Faculdade', 6)" />
+                        <label for="divulgacao-4">Vi na Faculdade</label>
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-5" (click)="resposta('divulgacao', 'Whatsapp/Telegram', 6)" />
+                        <label for="divulgacao-5">Whatsapp/Telegram</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-6" (click)="resposta('divulgacao', 'Amigos', 6)" />
+                        <label for="divulgacao-6">Amigos</label>
+                    </p>
+                    <p class="resposta">
+                        <input name="divulgacao" type="radio" id="divulgacao-7" (click)="resposta('divulgacao', 'Outras formas', 6)" />
+                        <label for="divulgacao-7">Outras formas</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="area" *ngSwitchCase="6">
+            <p class="center-align convite-pesquisa">
+                Para finalizar, gostaria de fornecer seu <strong>CPF</strong> e confirmar seu <strong>nome completo</strong> para receber seu certificado de participação? Esta etapa é opcional.
+            </p>
+
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat green white-text center-align" (click)="step = 7">sim, confirmarei meus dados</a>
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat grey grey-text text-darken-3 center-align" (click)="finalizar()">não preciso de certificado</a>
+        </div>
+
+        <div class="area" *ngSwitchCase="7">
+
+            <div class="ifield">
+                <label for="nomeCompleto">Nome completo</label>
+                <input id="nomeCompleto" type="text" class="validate nomeCompleto" [(ngModel)]="subscription.name">
+            </div>
+
+            <div class="input-field ifield">
+                <input id="cpf" type="text" class="validate" [(ngModel)]="subscription.cpf">
+                <label for="cpf">CPF</label>
+            </div>
+
+            <a href="#!" class="modal-action waves-effect waves-green btn-flat green white-text center-align" (click)="finalizar()">finalizar inscrição</a>
+
+        </div>
+
+        <div class="area" *ngSwitchCase="8">
+
+            <p class="center-align convite-pesquisa">Finalizando inscrição...</p>
+
+            <div class="center-align">
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="area" *ngSwitchCase="9">
+            <p class="center-align convite-pesquisa">
+                Sua inscrição foi realizada com <strong>sucesso!</strong><br>Você receberá um e-mail de confirmação com seu <strong>QRCode</strong>, leve-o impresso no dia do evento ou mostre-o no seu celular no momento do credenciamento.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <!--<a href="#!" class="modal-action waves-effect waves-green btn-flat green white-text">finalizar inscrição</a>-->
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat " (click)="step = 1">cancelar</a>
+    </div>
 
 </div>
