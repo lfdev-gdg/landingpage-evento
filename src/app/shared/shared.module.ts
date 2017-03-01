@@ -7,14 +7,7 @@ import {SharedRoutingModule} from './shared-routing.module';
 
 import {FirebaseService} from "./firebase.service";
 import {MaterializeModule} from "angular2-materialize";
-
-export const firebaseConfig = {
-    apiKey: "AIzaSyAkNVKSCtC8ecBTU8pn5hoMdfGrUzWng2s",
-    authDomain: "evento-lfdev.firebaseapp.com",
-    databaseURL: "https://evento-lfdev.firebaseio.com",
-    storageBucket: "evento-lfdev.appspot.com",
-    messagingSenderId: "681302044890"
-};
+import {firebaseConfig} from "./firebase.config";
 
 @NgModule({
     imports: [

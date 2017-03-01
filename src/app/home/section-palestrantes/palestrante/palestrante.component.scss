@@ -46,8 +46,9 @@
         padding: .5em;
         background-color: $verde;
         color: #fff;
-        height: 1px;
+        height: 0;
         opacity: 0;
+        z-index: -1;
 
         -webkit-transition: height .3s, opacity .1s;
         -moz-transition: height .3s, opacity .1s;
@@ -77,5 +78,6 @@
     .bio-active {
         height: 306px;
         opacity: 1;
+        z-index: 1;
     }
 }
