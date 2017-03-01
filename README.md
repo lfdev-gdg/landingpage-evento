@@ -17,7 +17,7 @@ Você precisa preencher a configuração do firebase com as credenciais do seu p
 Esta configuração está no arquivo `firebase.config.ts` que fica na pasta `src/app/shared`:
 
 ```
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "sua api key",
     authDomain: "url do auth",
     databaseURL: "url do banco",
