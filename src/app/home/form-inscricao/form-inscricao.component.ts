@@ -24,8 +24,8 @@ export class FormInscricaoComponent implements OnInit {
     constructor(private fire: FirebaseService) { }
 
     ngOnInit() {
-        this.subscription.name = 'walter';
-        this.subscription.email = 't@c.co';
+        /*this.subscription.name = 'walter';
+        this.subscription.email = 't@c.co';*/
     }
 
     sendSubscription(): void {
