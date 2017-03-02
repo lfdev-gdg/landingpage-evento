@@ -5,6 +5,7 @@ import {FirebaseService} from "../../shared/firebase.service";
 import {Subscription} from "../../shared/data/subscription";
 import {Question} from "../../shared/data/question";
 import {_catch} from "rxjs/operator/catch";
+import {Http} from "@angular/http";
 
 @Component({
     selector: 'app-form-inscricao',
@@ -21,7 +22,7 @@ export class FormInscricaoComponent implements OnInit {
     multipla: Array<any>;
     step: number = 1;
 
-    constructor(private fire: FirebaseService) { }
+    constructor(private fire: FirebaseService, private http: Http) { }
 
     ngOnInit() {
         /*this.subscription.name = 'walter';
@@ -89,12 +90,26 @@ export class FormInscricaoComponent implements OnInit {
             .then( res => {
                 this.avancaStep(9);
                 this.sendEmail(res.key);
+                this.subscription = new Subscription();
             } )
             .catch( err => console.log(err) );
     }
 
     private sendEmail(key: string): void {
+        this.http.post('http://evento.lfdev.tk/confirmacao.php', {email: this.subscription.email, nome: this.subscription.name, userid: key}).subscribe(
+            res => {
+                if (res.status == 200) {
+                    let body = res.json();
 
+                    if (body.success) {
+                        console.log('email enviado');
+                    } else {
+                        console.log('erro ao enviar email');
+                    }
+                }
+            },
+            err => console.log('erro ao conectar')
+        );
     }
 
 }

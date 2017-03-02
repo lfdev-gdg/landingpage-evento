@@ -12,9 +12,9 @@
         <p>{{palestrante.bio}}</p>
 
         <div class="redes">
-            <a [href]="palestrante.redes.github" target="_blank"><i class="icon ion-social-github"></i></a>
-            <a [href]="palestrante.redes.facebook" target="_blank"><i class="icon ion-social-facebook"></i></a>
-            <a [href]="palestrante.redes.twitter" target="_blank"><i class="icon ion-social-twitter"></i></a>
+            <a *ngIf="palestrante.redes.github" [href]="palestrante.redes.github" target="_blank"><i class="icon ion-social-github"></i></a>
+            <a *ngIf="palestrante.redes.facebook" [href]="palestrante.redes.facebook" target="_blank"><i class="icon ion-social-facebook"></i></a>
+            <a *ngIf="palestrante.redes.twitter" [href]="palestrante.redes.twitter" target="_blank"><i class="icon ion-social-twitter"></i></a>
         </div>
     </div>
 
