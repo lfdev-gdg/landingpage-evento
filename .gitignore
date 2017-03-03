@@ -40,4 +40,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/.history
+
 firebase.config.ts
