@@ -17,3 +17,9 @@
         margin: 0 0 1em;
     }
 }
+
+@media screen and ( max-height: 600px ) {
+    .titulo-component {
+        margin-top: calc(10% - 85px);
+    }
+}
