@@ -11,7 +11,7 @@ Para rodar este projeto você precisa ter instalado em sua máquina o **Node.js*
 - Instale as dependências `npm install`
 - Rode o servidor de teste `ng serve`
 
-## Configura o Firebase
+## Configurar o Firebase
 
 Você precisa preencher a configuração do firebase com as credenciais do seu projeto disponível no console do firebase.
 Esta configuração está no arquivo `firebase.config.ts` que fica na pasta `src/app/shared`:

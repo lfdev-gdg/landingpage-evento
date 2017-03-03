@@ -3,7 +3,6 @@
 .contador-component {
     position: absolute;
     left: 0;
-    bottom: -75px;
     width: 100%;
 
     .box {
@@ -41,5 +40,11 @@
         .box {
             padding: .5em 1em;
         }
+    }
+}
+
+@media screen and ( min-height: 625px ) {
+    .contador-component {
+        bottom: -75px;
     }
 }
