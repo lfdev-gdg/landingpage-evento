@@ -40,7 +40,7 @@ export class SectionAgendaComponent implements OnInit {
             {
                 hora: '11:25',
                 nome: 'Jonata Weber',
-                titulo: 'Palestra à confirmar',
+                titulo: 'A onda agora é Funções como Serviço',
                 imagem: '../../../assets/img/p_jonata.jpg'
             },
         ];

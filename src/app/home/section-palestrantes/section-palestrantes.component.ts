@@ -40,9 +40,9 @@ export class SectionPalestrantesComponent implements OnInit {
                 sobrenome: 'Paixão',
                 imagem: '../../../../assets/img/p_tuane.jpg',
                 redes: {
-                    github: 'http://github.com/wgbn',
-                    facebook: 'https://facebook.com/wgbnn',
-                    twitter: 'https://twitter.com/jebinha'
+                    //github: 'http://github.com/wgbn',
+                    facebook: 'https://www.facebook.com/tuane.paixao.9',
+                    twitter: 'https://twitter.com/tuanelisboa'
                 },
                 bio: 'Mestranda em Engenharia de sistemas e produtos. Especialista em gestão de projetos. Engenheira eletricista . Membro do COUNCIL Iot e Woman Techmaker.  Amante por Middleware,  Internet das Coisas e Software Livres.'
             },
@@ -55,7 +55,7 @@ export class SectionPalestrantesComponent implements OnInit {
                     facebook: 'https://facebook.com/wgbnn',
                     twitter: 'https://twitter.com/jebinha'
                 },
-                bio: 'Desenvolvedor PHP desde 2000, vem se especializando em aplicações ricas para web e mobile. Ao longo dos anos vem se aventurando com diversas tecnologias diferentes que vão desde o Adobe Flex até aplicações mobile híbridas.'
+                bio: 'Desenvolvedor PHP desde 2000, especialista em aplicações ricas para web e mobile. Ao longo dos anos vem se especializando em diversas tecnologias diferentes que vão desde o Adobe Flex até aplicações mobile híbridas.'
             },
             {
                 nome: 'Jonata',
@@ -66,7 +66,7 @@ export class SectionPalestrantesComponent implements OnInit {
                     //facebook: 'https://facebook.com/wgbnn',
                     twitter: 'https://twitter.com/jonataweber'
                 },
-                bio: 'Além de empreendedor, programador e fã do Raul Seixas, Jonata acredita que a tecnologia pode mudar positivamente a vida das pessoas. Ele está sempre envolvido com comunidade e participa ativamente dos grupos DEVFSA, PHPBA e #horaextra. É bacharel em Sistemas de Informação e pós-graduando em Engenharia de Software pela UNIFACS. É um apaixonado pelo trabalho home office, já trabalhou com equipes distribuídas em Portugal e Estados Unidos. Além disso, trabalha com PHP desde 2009 e recentemente ganhou o título de Zend Certified PHP Engineer.'
+                bio: 'Empreendedor, programador e fã do Raul Seixas, integrante das comunidades: DEVFSA, PHPBA e #horaextra. É bacharel em SI e pós-graduando em Engenharia de Software. Trabalhou com equipes distribuídas em Portugal e Estados Unidos.'
             },
         ];
     }
