@@ -8,6 +8,7 @@ import {SharedRoutingModule} from './shared-routing.module';
 import {FirebaseService} from "./firebase.service";
 import {MaterializeModule} from "angular2-materialize";
 import {firebaseConfig} from "./firebase.config";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     imports: [
@@ -18,14 +19,15 @@ import {firebaseConfig} from "./firebase.config";
         MaterializeModule,
         SharedRoutingModule
     ],
-    declarations: [],
+    declarations: [NotFoundComponent],
     providers: [
         FirebaseService
     ],
     exports: [
         FormsModule,
         HttpModule,
-        MaterializeModule
+        MaterializeModule,
+        NotFoundComponent
     ]
 })
 export class SharedModule { }
