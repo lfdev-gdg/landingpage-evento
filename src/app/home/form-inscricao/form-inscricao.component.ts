@@ -22,6 +22,8 @@ export class FormInscricaoComponent implements OnInit {
     multipla: Array<any>;
     step: number = 0;
 
+    btnModal: string = 'cancelar';
+
     constructor(private fire: FirebaseService, private http: Http) { }
 
     ngOnInit() {
@@ -91,6 +93,7 @@ export class FormInscricaoComponent implements OnInit {
                 this.avancaStep(9);
                 this.sendEmail(res.key);
                 this.subscription = new Subscription();
+                this.btnModal = "Finalizar";
             } )
             .catch( err => console.log(err) );
     }
