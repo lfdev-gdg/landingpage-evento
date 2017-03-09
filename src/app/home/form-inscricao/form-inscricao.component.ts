@@ -32,6 +32,8 @@ export class FormInscricaoComponent implements OnInit {
     }
 
     sendSubscription(): void {
+        ga('send', 'event', 'Botões','Click', 'Iniciou a inscrição');
+
         if (this.subscription.name && this.subscription.email) {
 
             if (this.validateEmail()) {
@@ -55,6 +57,11 @@ export class FormInscricaoComponent implements OnInit {
 
     }
 
+    setStep(step: number, event: string): void {
+        this.step = step;
+        ga('send', 'event', 'Botões', 'Click', event);
+    }
+
     private startSurvey(): void {
         this.surveyActions.emit({ action:"modal", params:['open'] });
     }
@@ -71,6 +78,7 @@ export class FormInscricaoComponent implements OnInit {
 
         this.subscription.survey.questions.push(q);
         this.avancaStep(step);
+        ga('send', 'event', 'Botões', 'Click', 'Respondeu pergunta '+pergunta);
     }
 
     respostaMultipla(resposta: string): void {
@@ -86,6 +94,7 @@ export class FormInscricaoComponent implements OnInit {
     }
 
     finalizar(): void {
+        ga('send', 'event', 'Botões', 'Click', 'Finalizou a inscrição');
         this.avancaStep(8);
 
         this.fire.subscribeToEvent(this.subscription)

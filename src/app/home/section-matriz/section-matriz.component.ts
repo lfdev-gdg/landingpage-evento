@@ -16,4 +16,11 @@ export class SectionMatrizComponent implements OnInit {
         return this.sanitizer.bypassSecurityTrustStyle('url(' + url + ')');
     }
 
+    setSection(): void {
+        if (sessionStorage.getItem('sectionRodape') === null) {
+            sessionStorage.setItem('sectionRodape', 'true');
+            ga('send', 'event', 'Navegação', 'Visualizou', 'Rolou até o rodapé');
+        }
+    }
+
 }

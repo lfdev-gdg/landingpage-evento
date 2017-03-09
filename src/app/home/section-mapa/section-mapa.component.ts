@@ -16,4 +16,11 @@ export class SectionMapaComponent implements OnInit {
         return this.sanitizer.bypassSecurityTrustStyle('url(' + url + ')');
     }
 
+    setSection(): void {
+        if (sessionStorage.getItem('sectionMapa') === null) {
+            sessionStorage.setItem('sectionMapa', 'true');
+            ga('send', 'event', 'Navegação', 'Visualizou', 'Rolou até o mapa');
+        }
+    }
+
 }

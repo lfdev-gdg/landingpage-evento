@@ -71,4 +71,11 @@ export class SectionPalestrantesComponent implements OnInit {
         ];
     }
 
+    setSection(): void {
+        if (sessionStorage.getItem('sectionPalestrantes') === null) {
+            sessionStorage.setItem('sectionPalestrantes', 'true');
+            ga('send', 'event', 'Navegação', 'Visualizou', 'Rolou até os palestrantes');
+        }
+    }
+
 }

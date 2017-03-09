@@ -15,6 +15,10 @@ export class PalestranteComponent implements OnInit {
 
     ngOnInit() { }
 
+    clickSocial(rede: string): void {
+        ga('send', 'event', 'Botões', 'Click', 'entrou no ' + rede + ' do palestrante');
+    }
+
     trust(url: string): any {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
