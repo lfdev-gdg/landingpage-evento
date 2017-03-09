@@ -26,15 +26,37 @@
 
         <h4>Concluir</h4>
 
-        <div class="area" *ngSwitchCase="1">
+        <div class="area" *ngSwitchCase="0">
             <p class="center-align convite-pesquisa">Que tal nos ajudar a <strong>conhecer melhor você</strong> para prepararmos uma experiência incrível? Esta etapa é opcional.</p>
             <p class="center-align convite-pesquisa">É fácil e rápido, basta responder nossa pesquisa, leva menos de 5 minutos!</p>
 
-            <a href="#" class="waves-effect waves-green btn-flat green white-text center-align" (click)="step = 2">sim, vou responder a pesquisa</a>
+            <a href="#" class="waves-effect waves-green btn-flat green white-text center-align" (click)="step = 1">sim, vou responder a pesquisa</a>
             <a href="#" class="waves-effect waves-green btn-flat grey grey-text text-darken-3 center-align" (click)="step = 6">agora não, vou pular esta parte</a>
         </div>
 
+        <div class="area" *ngSwitchCase="1">
+
+            <p class="convite-pesquisa">Você é:</p>
+
+            <div class="row" style="width: 40%; text-align: center;">
+                <!--<div class="col s12">-->
+                    <p class="resposta">
+                        <input name="sexo" type="radio" id="sexo-1" (click)="resposta('sexo', 'Menino', 2)" />
+                        <label for="sexo-1">Menino</label>
+                    </p>
+                <!--</div>
+                <div class="col s6">-->
+                    <p class="resposta">
+                        <input name="sexo" type="radio" id="sexo-4" (click)="resposta('sexo', 'Menina', 2)" />
+                        <label for="sexo-4">Menina</label>
+                    </p>
+                <!--</div>-->
+            </div>
+
+        </div>
+
         <div class="area" *ngSwitchCase="2">
+
             <p class="convite-pesquisa">Sobre sua área de atuação, você é:</p>
 
             <div class="row">

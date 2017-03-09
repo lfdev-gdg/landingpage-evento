@@ -20,7 +20,7 @@ export class FormInscricaoComponent implements OnInit {
 
     alertMsg: string;
     multipla: Array<any>;
-    step: number = 1;
+    step: number = 0;
 
     constructor(private fire: FirebaseService, private http: Http) { }
 
